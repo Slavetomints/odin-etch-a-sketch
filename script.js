@@ -37,10 +37,13 @@ sizeButton.addEventListener('click', function(e) {
 // });
 
 
-for (i = 0; i < 16; ++i) {
+for (i = 0; i < 144; ++i) {
     let etchASketchGridSquare = document.createElement("div");
     etchASketchGridSquare.classList.add("grid-square");
     etchASketchContainer.appendChild(etchASketchGridSquare);
+    let squareWidth = (400 / 12) + "px";
+    etchASketchGridSquare.style.width = squareWidth;
+    etchASketchGridSquare.style.height = squareWidth;
 };
 
 let etchASketchGridSquares = document.querySelectorAll(".grid-square");
