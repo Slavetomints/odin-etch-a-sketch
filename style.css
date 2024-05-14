@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+h1 {
+    font-family: "Dancing Script", cursive;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: 5%;
+    border: 10px solid red;
+}
+
+.grid-square {
+    /* border: 2px solid black; */
+    width: 96px;
+    height: 96px;
+    background-color: white;
+
+}
+.hovered {
+    background-color: black;
+}
