@@ -20,9 +20,12 @@ function updateGridSize(numberOfSquares, rawNumberOfSquares) {
 
     etchASketchGridSquares.forEach(square => {
         square.addEventListener("mouseover", () => {
-            square.classList.add("hovered");
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            randomColor = "#" + randomColor.padStart(6, '0');
+            square.style.backgroundColor = randomColor;
         }); 
     });
+    
 }
 
 sizeButton.addEventListener('click', function(e) {
@@ -30,12 +33,6 @@ sizeButton.addEventListener('click', function(e) {
     let numberOfSquares = rawNumberOfSquares ** 2
     updateGridSize(numberOfSquares, rawNumberOfSquares);
 })
-
-// numberOfSquaresInput.addEventListener("input", () => {
-//     let numberOfSquares = numberOfSquaresInput.value;
-//     alert(numberOfSquares);
-// });
-
 
 for (i = 0; i < 144; ++i) {
     let etchASketchGridSquare = document.createElement("div");
@@ -50,6 +47,8 @@ let etchASketchGridSquares = document.querySelectorAll(".grid-square");
 
 etchASketchGridSquares.forEach(square => {
     square.addEventListener("mouseover", () => {
-        square.classList.add("hovered");
+        let randomColor = Math.floor(Math.random()*16777215).toString(16);
+        randomColor = "#" + randomColor.padStart(6, '0');
+        square.style.backgroundColor = randomColor;
     }); 
 });
