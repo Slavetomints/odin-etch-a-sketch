@@ -20,17 +20,41 @@ function updateGridSize(numberOfSquares, rawNumberOfSquares) {
 
     etchASketchGridSquares.forEach(square => {
         square.addEventListener("mouseover", () => {
-            let randomColor = Math.floor(Math.random()*16777215).toString(16);
-            randomColor = "#" + randomColor.padStart(6, '0');
-            square.style.backgroundColor = randomColor;
+            let squareColor = '';
+            switch(colorShifter.value) {
+    
+                case 'normal':
+                    square.style.backgroundColor = "black";
+                    square.style.opacity = 1.0;
+                    break;
+
+                case 'rainbow':
+                    squareColor = Math.floor(Math.random()*16777215).toString(16);
+                    squareColor = "#" + squareColor.padStart(6, '0');
+                    square.style.backgroundColor = squareColor;
+                    square.style.opacity = 1.0;
+                    break;
+
+                case 'opacity-shifter':
+                    let currentOpacity = parseFloat(square.style.opacity);
+                    if (!isNaN(currentOpacity)) {
+                    square.style.opacity = (currentOpacity + 0.1 > 1) ? 0 : currentOpacity + 0.1;
+                    } else {
+                    square.style.opacity = 0.1;
+                    }
+                    break;
+
+                default:
+                    colorOption = 'normal';
+                    break;
+            };
         }); 
     });
-    
-}
+};
 
 sizeButton.addEventListener('click', function(e) {
     let rawNumberOfSquares = numberOfSquaresInput.value;
-    let numberOfSquares = rawNumberOfSquares ** 2
+    let numberOfSquares = rawNumberOfSquares ** 2;
     updateGridSize(numberOfSquares, rawNumberOfSquares);
 })
 
@@ -47,8 +71,40 @@ let etchASketchGridSquares = document.querySelectorAll(".grid-square");
 
 etchASketchGridSquares.forEach(square => {
     square.addEventListener("mouseover", () => {
-        let randomColor = Math.floor(Math.random()*16777215).toString(16);
-        randomColor = "#" + randomColor.padStart(6, '0');
-        square.style.backgroundColor = randomColor;
+        let squareColor = '';
+        switch(colorShifter.value) {
+
+            case 'normal':
+                square.style.backgroundColor = "black";
+                square.style.opacity = 1.0;
+                break;
+
+            case 'rainbow':
+                squareColor = Math.floor(Math.random()*16777215).toString(16);
+                squareColor = "#" + squareColor.padStart(6, '0');
+                square.style.backgroundColor = squareColor;
+                square.style.opacity = 1.0;
+                break;
+
+            case 'opacity-shifter':
+                let currentOpacity = parseFloat(square.style.opacity);
+                if (!isNaN(currentOpacity)) {
+                    square.style.opacity = (currentOpacity + 0.1 > 1) ? 0 : currentOpacity + 0.1;
+                } else {
+                    square.style.opacity = 0.1;
+                }
+                break;
+
+            default:
+                colorOption = 'normal';
+                break;
+        };
     }); 
+});
+
+const colorShifter = document.querySelector("#color-option");
+let colorOption = '';
+
+colorShifter.addEventListener("change", () => {
+    colorOption = colorShifter.value;
 });

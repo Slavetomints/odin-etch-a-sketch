@@ -16,14 +16,11 @@ h1 {
     margin: 5%;
     border: 10px solid red;
 }
-
 .grid-square {
-    /* border: 2px solid black; */
     width: 96px;
     height: 96px;
     background-color: white;
-
 }
-.hovered {
-    background-color: black;
+.even-spacing {
+    margin: 30px auto;
 }
