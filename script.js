@@ -89,9 +89,9 @@ etchASketchGridSquares.forEach(square => {
             case 'opacity-shifter':
                 let currentOpacity = parseFloat(square.style.opacity);
                 if (!isNaN(currentOpacity)) {
-                    square.style.opacity = (currentOpacity + 0.1 > 1) ? 0 : currentOpacity + 0.1;
+                    square.style.opacity = (currentOpacity - 0.1 < 0) ? 1 : currentOpacity - 0.1;
                 } else {
-                    square.style.opacity = 0.1;
+                    square.style.opacity = 1;
                 }
                 break;
 

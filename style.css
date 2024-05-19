@@ -15,6 +15,7 @@ h1 {
     width: 400px;
     margin: 5%;
     border: 10px solid red;
+    background-color: white;
 }
 .grid-square {
     width: 96px;
